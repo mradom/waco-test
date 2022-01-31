@@ -17,13 +17,13 @@ class FavComponent extends Component
     public function mount()
     {
         $this->url = "https://rickandmortyapi.com/api/character";
-        $response = Http::get($this->url);
-        $this->personajes = $response->object();
     }
 
     public function render()
     {
         $this->getFavs();
+        $response = Http::get($this->url);
+        $this->personajes = $response->object();
         return view('livewire.fav-component', [
             'personajes' => $this->personajes,
             'favoritos' => $this->favoritos
@@ -32,7 +32,7 @@ class FavComponent extends Component
 
     public function getFavs()
     {
-        $favs = Favs::all();
+        $favs = Favs::where('user_id',Auth::id())->get();
         foreach($favs as $fav)
         {
             $personaje = Http::get($fav->ref_api);

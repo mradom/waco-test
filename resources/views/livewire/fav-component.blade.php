@@ -3,13 +3,17 @@
         <table width="100%">
             <tr>
                 <td class="text-center text-2xl">
-                    @if ($personajes->info->prev)
-                    <button wire:click="pagina('{{$personajes->info->prev}}')">Anterior</button>
+                    @if (isset($personajes->info))
+                        @if ($personajes->info->prev)
+                        <button wire:click="pagina('{{$personajes->info->prev}}')">Anterior</button>
+                        @endif
                     @endif
                 </td>
                 <td class="text-center text-2xl">
-                    @if ($personajes->info->next)
-                    <button wire:click="pagina('{{ $personajes->info->next }}')">Siguiente</button>
+                    @if (isset($personajes->info))
+                        @if ($personajes->info->next)
+                        <button wire:click="pagina('{{ $personajes->info->next }}')">Siguiente</button>
+                        @endif
                     @endif
                 </td>
             </tr>
@@ -82,13 +86,17 @@
         <table width="100%">
             <tr>
                 <td class="text-center text-2xl">
-                    @if ($personajes->info->prev)
-                    <button wire:click="pagina({{$personajes->info->prev}})">Anterior</button>
+                    @if (isset($personajes->info))
+                        @if ($personajes->info->prev)
+                        <button wire:click="pagina('{{$personajes->info->prev}}')">Anterior</button>
+                        @endif
                     @endif
                 </td>
                 <td class="text-center text-2xl">
-                    @if ($personajes->info->next)
-                    <button wire:click="pagina({{$personajes->info->next}})">Siguiente</button>
+                    @if (isset($personajes->info))
+                        @if ($personajes->info->next)
+                        <button wire:click="pagina('{{ $personajes->info->next }}')">Siguiente</button>
+                        @endif
                     @endif
                 </td>
             </tr>
